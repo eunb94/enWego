@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.wego.web.hotel.HotelMapper">
+
+	<select id="createHotel" parameterType="hashmap">
+		${CREATE_HOTEL}
+	</select>
+	<select id="createRoom" parameterType="hashmap">
+		${CREATE_ROOM}
+	</select>
+	 <insert id="insertHotel" parameterType="Hotel">
+    	insert into hotel(HOTELNAME, RATING, HID,COMMENTS, HOTELIMG, PRICE, HADDR) values
+			(#{hotelname},#{rating},#{hid},#{comments},#{hotelimg},#{price},#{haddr})
+    </insert>
+     <insert id="insertRoom" parameterType="Room">
+    	insert into room(HOTELNAME,ROOMIMG,ROOMTYPE) values
+			(#{hotelname},#{roomimg},#{roomtype})
+    </insert>
+</mapper>
